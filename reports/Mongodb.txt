@@ -1,4 +1,4 @@
-Contributors: Ryan Xu, Vincent Feng
+Contributors: Ryan Xu, Vincent Feng, Xin Jiang
 
 We are using Mongodb to solve storage and security problems. We use their given java library to access the database.
 
