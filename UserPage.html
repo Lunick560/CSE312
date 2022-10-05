@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>UserPage</title>
+        <link rel="stylesheet" href="UserPage.css">
+    </head>
+    <body>
+        <div class="TopPart">
+            <div class="Header">
+                <div class="ProfileContainer">
+                    <div class="ProfilePhoto">
+                        <img src="SpongeBob_stock_art.png" width="200">
+                    </div>
+                    <div class="PersonalInfo">
+                        <h1 class="Username" id = "NameOfUser">#####USERNAME#####</h1>
+                    </div>
+                </div>
+                <div class="Contact">
+                    <div class="PhoneNumber">
+                        <p><i class="ThisIsPhoneNumer">&#128222;123-456-7890</i></p>
+                        <p><i class="ThisIsEmail">&#9993;something@something.com</i></p>
+                        <div class="UserDescirption">
+                            <p class="Discription">Creeper?</p>
+                        </div>
+                        <button type="button" name="MessageButton">Message</button>
+                    </div>
+                    <div class="PostPart">
+                        <div class="nav">
+                            <ul class="nb">
+                                <li onclick="tabs(0)" class="UserPost">
+                                  Posts
+                                </li>
+                                <li onclick="tabs(1)" class="UserReview">
+                                  Comments
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="ProfileMain">
+                <div class="ProfilePosts">
+                    <h2>User Posts</h2>
+                    <button type="button" class="collapse" onclick="collapse(this)">Create New Post</button>
+                    <div class="postDiv">
+                        <br>
+                        <form onsubmit="sendMessage(); return false;" id="cform">
+                            <label for="fmsg">Message: </label>
+                            <br>
+                            <input id="fmsg" type="text" name="msg">
+                            <br>
+                            <label for="fmedia"></label>
+                            <br>
+                            <input id="fmedia" type="file" name="media">
+                            <br>
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                        <br>
+                    </div>
+                    <div id="serverPosts">
+                    </div>
+                    <template id = "comments"> 
+                        <div class="commentstemp">
+                            <div class="commentBlock">
+                                <div class="profileInfo">
+                                    <img class="smallProfile" src="BookFaceLogo.png">
+                                    <p class="smallName"></p>
+                                </div>
+                                <p class = "comment"></p>
+                                <div class="reactionContainer">
+                                    <p class="reactions"></p>
+                                    <button class="likeButton" onclick="like(this.id)">Like</button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template id="posts">
+                        <div class="postTemplate">
+                            <div class="profileInfo">
+                                <img class="smallProfile" src="BookFaceLogo.png">
+                                <a class="smallName"></a>
+                            </div>
+                            <div class="messageContainer">
+                                <p class="postMessage"></p>
+                            </div>
+                            <div class="reactionContainer">
+                                <p class="reactions"></p>
+                                <button class="likeButton" onclick="like(this.id)">Like</button>
+                            </div>
+                            <button type="button" class="collapse" onclick="collapse(this)">Comment</button>
+                            <div class="postDiv">
+                                <br>
+                                <form onsubmit="sendComment(this); return false;" class="comform">
+                                    <input class="formmsg" type="text" name="msg">
+                                    <input type="submit" value="Submit">
+                                </form>
+                                <br>
+                            </div>
+                            <div class="commentholder"></div>
+                        </div>
+                    </template>
+                    <template id="multiposts">
+                        <div class="postTemplate">
+                            <div class="profileInfo">
+                                <img class="smallProfile" src="BookFaceLogo.png">
+                                <a class="smallName"></a>
+                            </div>
+                            <div class="mediaContent">
+                            </div>
+                            <div class="reactionContainer">
+                                <p class="reactions"></p>
+                                <button class="likeButton" onclick="like(this.id)">Like</button>
+                            </div>
+                            <button type="button" class="collapse" onclick="collapse(this)">Comment</button>
+                            <div class="postDiv">
+                                <br>
+                                <form onsubmit="sendComment(this); return false;" class="comform">
+                                    <input class="formmsg" type="text" name="msg">
+                                    <input type="submit" value="Submit">
+                                </form>
+                                <br>
+                            </div>
+                            <div class="commentholder"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div id="friendslist">
+                <div id="friendfunc">
+                    <button onclick="friendsList()" id="flopen">Friends List</button>
+                    <button id="addFriend" onclick="editFriend(6)">Add A Friend</button>
+                    <button id="edit" onclick="editFriend(7)">Unfriend</button>
+                    <input id="flcont" type="text" name="msg">
+                </div>
+                <div id="friends">
+                </div>
+        </div>
+        <template id = "DMtemplate">
+            <div class="DM">
+                <button class="close" onclick="this.parentElement.parentElement.removeChild(this.parentElement)">X</button>
+                <div class="chat">
+                </div>
+                <form onsubmit="sendDM(this); return false;" class="chatform">
+                    <input class="chatmsg" type="text" name="msg">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </template>
+        <script type="text/javascript" src="UserPage.js"></script>
+    </body>
+</html>
